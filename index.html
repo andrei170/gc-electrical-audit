@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GC Electrical Services — Audit</title><style>
+:root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--mut:#9aa7b4;--line:#2a3340;--accent:#2f81f7;
+  --good:#3fb950;--bad:#f85149;--gradF:#f85149;--gradD:#e8702a;--gradC:#d29922;--gradB:#3fb950;--gradA:#2ea043;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:12px;color:var(--mut);font-weight:600}
+header{padding:46px 0 28px;border-bottom:1px solid var(--line);background:radial-gradient(1200px 400px at 70% -10%,rgba(47,129,247,.18),transparent)}
+h1{font-size:30px;font-weight:800;margin:10px 0 6px;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:15px}
+.hero{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:center;margin:34px 0 8px}
+@media(max-width:760px){.hero{grid-template-columns:1fr}}
+.gradecard{border:1px solid var(--line);border-radius:18px;padding:26px;text-align:center;position:relative;overflow:hidden}
+.gc-F{background:linear-gradient(160deg,#2a1410,#1c2330)}.gc-D{background:linear-gradient(160deg,#2a1c10,#1c2330)}
+.gc-C{background:linear-gradient(160deg,#2a2410,#1c2330)}.gc-B{background:linear-gradient(160deg,#102a1a,#1c2330)}
+.bigletter{font-size:96px;font-weight:900;line-height:1;position:relative}
+.bl-F{color:var(--gradF);text-shadow:0 0 40px rgba(248,81,73,.45)}
+.bl-D{color:var(--gradD);text-shadow:0 0 40px rgba(232,112,42,.45)}
+.bl-C{color:var(--gradC);text-shadow:0 0 40px rgba(210,153,34,.45)}
+.score100{font-size:18px;color:var(--mut);margin-top:6px;position:relative}
+.heroread h2{font-size:21px;font-weight:800;margin-bottom:10px}
+.heroread p{color:var(--mut);font-size:15.5px}
+.heroread .tag{display:inline-block;margin-top:14px;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;color:var(--ink);background:var(--panel)}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+.h{font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.14em;font-weight:700;margin-bottom:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.row{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.rname{font-weight:600;font-size:15px}
+.bar{height:7px;background:#0b0f15;border-radius:99px;margin-top:9px;overflow:hidden}
+.fill{height:100%;border-radius:99px}
+.badge{font-weight:800;font-size:15px;min-width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#0d1117}
+.gF{background:var(--gradF)}.gD{background:var(--gradD)}.gC{background:var(--gradC)}.gB{background:var(--gradB);color:#06210f}.gA{background:var(--gradA);color:#06210f}
+.sc{font-size:12px;color:var(--mut);margin-top:3px}
+.flag{background:linear-gradient(160deg,#2a1410,#161b22);border:1px solid #6f2a1f;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.flag .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--bad);font-weight:700;margin-bottom:8px}
+.win{background:linear-gradient(160deg,#0f2417,#161b22);border:1px solid #1f6f3a;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.win .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--good);font-weight:700;margin-bottom:8px}
+.warn{background:linear-gradient(160deg,#2a2410,#161b22);border:1px solid #6f5a1f;border-radius:14px;padding:20px 22px;margin-bottom:14px}
+.warn .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--gradC);font-weight:700;margin-bottom:8px}
+.flag p,.win p,.warn p{color:var(--mut);font-size:14.5px;margin-bottom:9px}
+.flag p:last-child,.win p:last-child,.warn p:last-child{margin-bottom:0}
+.flag b,.win b,.warn b{color:var(--ink)}
+.flag ul,.win ul,.warn ul{margin:0 0 9px 20px;color:var(--mut);font-size:14.5px}
+.flag li,.win li,.warn li{margin-bottom:6px}
+.code{background:#0b0f15;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:12px 0;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12.5px;line-height:1.85;color:var(--mut);overflow-x:auto}
+.code .ph{color:#ff9d94;font-weight:700}.code .ok{color:#84e0a8;font-weight:700}.code .c{color:#5b6672}
+.cmp{width:100%;border-collapse:collapse;font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.cmp th{text-align:left;padding:11px 14px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border-bottom:1px solid var(--line);font-weight:700}
+.cmp td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--mut);vertical-align:top}
+.cmp tr:last-child td{border-bottom:none}.cmp td b{color:var(--ink)}.cmp tr.you td{background:#241a12}
+.cmp .yes{color:var(--good);font-weight:700}.cmp .no{color:var(--bad);font-weight:700}
+.opp{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:760px){.opp{grid-template-columns:1fr}}
+.ocard{background:linear-gradient(160deg,#0f2417,#161b22);border:1px solid #1f6f3a;border-radius:14px;padding:20px;text-align:center}
+.ocard .lab{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mut)}
+.ocard .big{font-size:30px;font-weight:900;color:var(--good);margin:8px 0 2px}
+.ocard .small{font-size:13px;color:var(--mut)}
+.oppnote{color:var(--mut);font-size:14px;margin-top:14px}.oppnote b{color:var(--ink)}
+.arrow{display:flex;align-items:center;justify-content:center;gap:18px;margin:6px 0 2px;flex-wrap:wrap}
+.pill{font-size:60px;font-weight:900;line-height:1}
+.pill.from-F{color:var(--gradF)}.pill.from-D{color:var(--gradD)}.pill.from-C{color:var(--gradC)}
+.pill.to{color:var(--gradA)}
+.pilllab{font-size:12px;color:var(--mut);text-align:center;text-transform:uppercase;letter-spacing:.1em}
+.ar{font-size:34px;color:var(--mut)}
+ul.road{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:760px){ul.road{grid-template-columns:1fr}}
+ul.road li{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:8px;padding:11px 14px;font-size:14.5px}
+.road2 li{border-left-color:var(--good)}
+.cta{text-align:center;padding:40px 0 56px}
+.cta h2{font-size:22px;font-weight:800;margin-bottom:8px}
+.cta p{color:var(--mut);font-size:15px}
+footer{color:var(--mut);font-size:12.5px;text-align:center;padding:22px 0 40px;line-height:1.7}
+</style></head><body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Website &amp; Advertising Audit</div>
+    <h1>GC Electrical Services &mdash; Ripon &amp; Kirkby Malzeard</h1>
+    <div class="sub">Prepared for Giles Copeman &middot; Company 09775553 &middot; 27 August 2026 &middot; AG1 Consulting</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="gradecard gc-D">
+      <div class="bigletter bl-D">D+</div>
+      <div class="score100">40 / 100</div>
+    </div>
+    <div class="heroread">
+      <h2>You are a Part P electrician with five named commercial references and a website that mentions none of it above the fold.</h2>
+      <p>You do domestic and commercial work, you certify every job, and you have testimonials from
+      <b>Keystone Construction</b> and <b>York Student Property</b> sitting on your site. That is a
+      contractor's CV. <b>But there is no analytics of any kind, no star rating anywhere, and your
+      qualifications appear once each in body copy</b> rather than as the first thing anybody sees.</p>
+      <span class="tag">Ripon &middot; domestic &amp; commercial &middot; Part P certified</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="h">Finding 1 &mdash; Your Credentials Are Buried</div>
+    <div class="flag">
+      <div class="lab">For an electrician this matters more than for any other trade</div>
+      <div class="code">"Part P"          <span class="ph">mentioned once, in body copy</span>
+"18th Edition"    <span class="ph">mentioned once, in body copy</span>
+NICEIC or NAPIT   <span class="ph">not found anywhere on the site</span>
+Insurance         <span class="ph">not published</span>
+Star rating       <span class="ph">none shown</span></div>
+      <p>Electrical is the one trade where a homeowner genuinely fears getting it wrong. A bad paint job
+      is annoying. <b>A bad consumer unit is a house fire and an invalid insurance policy.</b> So the
+      first thing they look for is evidence you are certified &mdash; and if they cannot see it in a
+      few seconds, they assume you are not.</p>
+      <p>You <b>are</b> Part P compliant, you notify building control, and you fit 18th Edition
+      consumer units. All of that is on your site. <b>It is just written as a sentence in a paragraph
+      rather than shown as a badge at the top of the page.</b></p>
+      <p>We could not find a <b>NICEIC or NAPIT</b> registration anywhere. If you hold one, publishing
+      it is the single highest-value change on this document. If you do not, say so on the call and we
+      will build the trust case a different way rather than claim something you cannot evidence.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="h">Finding 2 &mdash; Nothing Is Measured. At All.</div>
+    <div class="warn">
+      <div class="lab">Read from your served page source</div>
+      <div class="code">Google Analytics (GA4)     <span class="ph">✗ not present</span>
+Universal Analytics        <span class="ph">✗ not present</span>
+Google Tag Manager         <span class="ph">✗ not present</span>
+Ads conversion tracking    <span class="ph">✗ not present</span>
+Meta pixel                 <span class="ph">✗ not present</span></div>
+      <p>There is no measurement of any kind. No visit, no call, no form submission is recorded. So
+      nobody can say how many people find you, whether the site produces work, or which service brings
+      it in.</p>
+      <p>It is the cheapest thing on this page, and it has to come before any advertising &mdash;
+      Google's bidding needs conversion data to optimise against, and with none it optimises for
+      clicks.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="h">Finding 3 &mdash; The Commercial Side Has No Route In</div>
+    <div class="warn">
+      <div class="lab">You have commercial references and no commercial page</div>
+      <p>Your testimonials include <b>Keystone Construction Ltd</b> and <b>York Student Property</b>.
+      Those are exactly the clients a small electrical contractor wants more of &mdash; repeat work,
+      scheduled, invoiced rather than chased.</p>
+      <p>But your navigation reads <b>Home, Contact, Welcome, More.</b> A site manager or a letting
+      agent arriving on your site finds a general electrician's page and nothing addressed to him: no
+      commercial section, no mention of certification for landlords, no EICR or periodic inspection
+      route, no insurance figures.</p>
+      <p><b>Landlord certification alone is recurring, legally required work</b> in a market like Ripon
+      and Harrogate. It is the most predictable revenue available to a domestic electrician and your
+      site does not mention it.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="h">Finding 4 &mdash; The Site Is Heavy For What It Contains</div>
+    <div class="warn">
+      <div class="lab">Roughly 558KB on a page with four navigation items</div>
+      <p>That is not catastrophic, but it is several times what a page this size needs, which is
+      typical of a Wix build carrying a large image set. It costs you most with the customer who
+      matters &mdash; somebody on mobile data who has just found a problem and is comparing two
+      electricians.</p>
+      <p>Related, and easier to fix: your navigation labels are <b>Home, Contact, Welcome, More.</b>
+      &ldquo;Welcome&rdquo; and &ldquo;More&rdquo; tell a visitor nothing and tell Google less. Naming
+      them after what you actually do &mdash; rewires, consumer units, EICRs, commercial &mdash; is a
+      ten-minute change with a real return.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="h">What Is Genuinely Good</div>
+    <div class="win">
+      <div class="lab">More of this is right than the grade suggests</div>
+      <ul>
+        <li><b>Your title tag is well written.</b> &ldquo;Electrical Contractor | GC Electrical Services Ripon | Kirkby Malzeard&rdquo; &mdash; trade and two locations. Most trades sites we audit have nothing like this.</li>
+        <li><b>A working contact form with six fields</b> including address and subject. Most of the sites we look at have no form at all.</li>
+        <li><b>Tap-to-call and a published email address.</b> Both routes open.</li>
+        <li><b>Five named testimonials</b>, two of them commercial clients. Named references beat anonymous praise every time.</li>
+        <li><b>A genuinely broad service list</b> — consumer units, sub-mains, underfloor heating, fire alarms, LED upgrades, EV-adjacent work, emergency call-out.</li>
+        <li><b>Part P certification with building control notification</b> stated plainly. That is the right claim, in the wrong place on the page.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="h">The Scorecard</div>
+    <div class="grid">
+      <div class="row"><div><div class="rname">Homepage title tag</div><div class="sc">Trade plus two locations. Well written.</div></div><div class="badge gA">A&minus;</div></div>
+      <div class="row"><div><div class="rname">Contact form</div><div class="sc">Six fields including address and subject. Working.</div></div><div class="badge gB">B+</div></div>
+      <div class="row"><div><div class="rname">Tap-to-call and email</div><div class="sc">07958 578318 and gilescopeman@gmail.com, both live.</div></div><div class="badge gB">B</div></div>
+      <div class="row"><div><div class="rname">Named references</div><div class="sc">Five, including two commercial clients.</div></div><div class="badge gB">B</div></div>
+      <div class="row"><div><div class="rname">Analytics</div><div class="sc">No GA4, no tag manager, no Universal Analytics anywhere.</div></div><div class="badge gF">F</div></div>
+      <div class="row"><div><div class="rname">Conversion tracking</div><div class="sc">None. No advertising could be measured.</div></div><div class="badge gF">F</div></div>
+      <div class="row"><div><div class="rname">Accreditations shown prominently</div><div class="sc">Part P and 18th Edition appear once each in body copy. No NICEIC or NAPIT found.</div></div><div class="badge gD">D&minus;</div></div>
+      <div class="row"><div><div class="rname">Star rating and review count</div><div class="sc">Testimonials but no rating, no count, no platform link.</div></div><div class="badge gD">D</div></div>
+      <div class="row"><div><div class="rname">Commercial page</div><div class="sc">None, despite holding commercial references.</div></div><div class="badge gF">F</div></div>
+      <div class="row"><div><div class="rname">Landlord / EICR route</div><div class="sc">Not mentioned. Recurring, legally required work with no page.</div></div><div class="badge gF">F</div></div>
+      <div class="row"><div><div class="rname">Navigation labels</div><div class="sc">&ldquo;Welcome&rdquo; and &ldquo;More&rdquo; describe nothing to a visitor or to Google.</div></div><div class="badge gD">D</div></div>
+      <div class="row"><div><div class="rname">Page weight</div><div class="sc">~558KB for four pages of content.</div></div><div class="badge gC">C&minus;</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="h">One Thing We Need From You On The Call</div>
+    <div class="flag">
+      <div class="lab">Being straight about what we were given</div>
+      <p>The brief passed to us described a business doing <b>7&ndash;9 jobs a week, wanting 3&ndash;4
+      more, currently a sole trader looking to hire</b>. That description was <b>identical, word for
+      word, to another prospect's</b> in the same batch &mdash; and it describes a window cleaning
+      round rather than an electrical contractor.</p>
+      <p><b>So we have not used any of it.</b> Every finding in this document comes from your website
+      and from Companies House, and nothing here assumes anything about your job volume, your team or
+      your plans.</p>
+      <p>Tell us the real position on the call and we will build the rest around it properly.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="h">Projected Grade After Build</div>
+    <div class="arrow">
+      <div class="gradecard gc-D" style="flex:1"><div class="bigletter bl-D">D+</div><div class="score100">40 / 100 today</div></div>
+      <div class="ar">&rarr;</div>
+      <div class="gradecard gc-B" style="flex:1"><div class="bigletter" style="color:#3fb950;text-shadow:0 0 40px rgba(63,185,80,.45)">A&minus;</div><div class="score100">89 / 100 projected</div></div>
+    </div>
+    <p class="oppnote">Projected, not promised. It reflects the twelve rows above being fixed.
+    <b>It is not a projection of leads, jobs or revenue.</b></p>
+  </section>
+
+  <section>
+    <div class="h">Fix First &mdash; This Week, No Spend</div>
+    <ul class="road">
+      <li><b>Put Part P, 18th Edition and your insurance at the top of the homepage</b> — as badges, not as a sentence halfway down</li>
+      <li><b>Install GA4 and conversion tracking.</b> Cheapest item here, and everything else depends on it</li>
+      <li><b>Rename &ldquo;Welcome&rdquo; and &ldquo;More&rdquo;</b> after the work you actually do</li>
+      <li><b>Ask your last ten customers for a Google review</b> so the proof becomes a visible number</li>
+    </ul>
+    <div class="h" style="margin-top:24px">Build Next</div>
+    <ul class="road road2">
+      <li><b>A landlord and EICR page</b> — recurring, legally required, and completely absent today</li>
+      <li><b>A commercial page</b> a site manager or letting agent can act on, using your existing references</li>
+      <li><b>Town pages</b> for Ripon, Kirkby Malzeard, Harrogate, Masham, Boroughbridge and Thirsk</li>
+      <li><b>Then advertise</b>, into a site that proves certification in three seconds and counts what arrives</li>
+    </ul>
+  </section>
+
+  <div class="cta">
+    <h2>Certified, insured, with construction clients on the books &mdash; and none of it visible in the first five seconds.</h2>
+    <p>You already have what most electricians are trying to build. It is written in the wrong places
+    on the page and nothing is measuring what it does.</p>
+  </div>
+</div>
+
+<footer>
+  Prepared by Andrei Givero &middot; AG1 Consulting &middot; 27 August 2026<br>
+  For Giles Copeman of GC Electrical Services Limited (company 09775553), Ripon, North Yorkshire. All
+  website findings were read from gc-electrical-services.com and its served page source on 27 August
+  2026 and reflect that page on that date only. <b>Absence of a NICEIC or NAPIT registration, an
+  insurance statement or a review count means it was not present in the served page &mdash; not that
+  you do not hold it</b>, and anything held but unpublished would not appear in this check; nothing in
+  this document claims you hold an accreditation you have not published. Part P and 18th Edition
+  references are your own published claims and have not been independently verified. Named testimonials
+  are reproduced as published on your site. <b>The brief supplied to us about job volume and hiring was
+  duplicated from another prospect and has therefore been disregarded entirely</b> &mdash; no finding
+  or figure in this document rests on it. Grades are our own assessment against a consistent framework
+  and are not an industry-standard measure. No number of leads, jobs or revenue is promised or
+  forecast.
+</footer>
+</body></html>
